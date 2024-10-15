@@ -9,7 +9,7 @@
         let result = false;
         // indexOf: -1 = false, 0 = true
         // Boolean: 0 = false, 1 = true
-        
+
         text = String(text); // indexOf accepts only string var
 
         var isHTTP = Boolean(text.indexOf('http://') + 1);
@@ -40,6 +40,8 @@
 
       if(checkHTTPURI(uri_href.value)){
       bookmark.appendChild(anchored_row);
+      } else {
+        alert("Invalid URI Format, Try Again.")
       }
 		  // 課題：
 		  // row の中に id:linkname のテキストを入れてから
