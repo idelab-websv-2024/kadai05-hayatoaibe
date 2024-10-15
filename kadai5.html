@@ -6,6 +6,7 @@
     <script type="text/javascript">
 
       function checkHTTPURI(text){
+        text = String(text); // indexOf accepts only string var
         let result = false;
         // indexOf: -1 = false, 0 = true
         // Boolean: 0 = false, 1 = true
