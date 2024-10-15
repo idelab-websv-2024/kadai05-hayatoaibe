@@ -29,17 +29,17 @@
 		  var row = document.createElement('li');
       var uri_name = document.getElementById('linkname');
       var uri_href = document.getElementById('href');
-      var anchored_row = document.createElement('a');
+      var anchored_text = document.createElement('a');
 
-      row.innerHTML = uri_name.value;
+      anchored_text.innerHTML = uri_name.value;
 
-      anchored_row.href = uri_href.value;
-      anchored_row.target = "_blank";
+      anchored_text.href = uri_href.value;
+      anchored_text.target = "_blank";
 
-      anchored_row.appendChild(row);
+      row.appendChild(anchored_text);
 
       if(checkHTTPURI(uri_href.value)){
-      bookmark.appendChild(anchored_row);
+      bookmark.appendChild(row);
       } else {
         alert("Invalid URI Format, Try Again.")
       }
