@@ -26,14 +26,17 @@
 		  var row = document.createElement('li');
       var uri_name = document.getElementById('linkname');
       var uri_href = document.getElementById('href');
-      var anchor_row = document.createElement('a');
-      anchor_row.href = uri_href.value;
-      anchor_row.target = "_blank";
-      anchor_row.appendChild(row);
+      var anchored_row = document.createElement('a');
+
       row.innerHTML = uri_name.value;
 
+      anchored_row.href = uri_href.value;
+      anchored_row.target = "_blank";
+
+      anchored_row.appendChild(row);
+
       if(checkHTTPURI(uri_href.value)){
-      bookmark.appendChild(anchor_row);
+      bookmark.appendChild(anchored_row);
       }
 		  // 課題：
 		  // row の中に id:linkname のテキストを入れてから
