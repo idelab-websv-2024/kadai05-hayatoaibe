@@ -6,10 +6,12 @@
     <script type="text/javascript">
 
       function checkHTTPURI(text){
-        text = String(text); // indexOf accepts only string var
         let result = false;
         // indexOf: -1 = false, 0 = true
         // Boolean: 0 = false, 1 = true
+        
+        text = String(text); // indexOf accepts only string var
+
         var isHTTP = Boolean(text.indexOf('http://') + 1);
         var isHTTPS = Boolean(text.indexOf('https://') + 1);
         if(isHTTP){
