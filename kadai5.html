@@ -5,10 +5,44 @@
     <title>createElement, appendChild</title>
     <script type="text/javascript">
 
+      function checkHTTPURI(text){
+        let result = false;
+        // indexOf: -1 = false, 0 = true
+        // Boolean: 0 = false, 1 = true
+
+        text = String(text); // indexOf accepts only string var
+
+        var isHTTP = Boolean(text.indexOf('http://') + 1);
+        var isHTTPS = Boolean(text.indexOf('https://') + 1);
+        if(isHTTP){
+          result = isHTTP;
+        }
+        if(isHTTPS){
+          result = isHTTPS;
+        }
+        return result;
+      }
+
       function addItem()
       {
 		  var bookmark = document.getElementById('bookmark');
 		  var row = document.createElement('li');
+      var uri_name = document.getElementById('linkname');
+      var uri_href = document.getElementById('href');
+      var anchored_text = document.createElement('a');
+
+      anchored_text.innerHTML = uri_name.value;
+
+      anchored_text.href = uri_href.value;
+      anchored_text.target = "_blank";
+
+      row.appendChild(anchored_text);
+
+      if(checkHTTPURI(uri_href.value)){
+      bookmark.appendChild(row);
+      } else {
+        alert("Invalid URI Format, Try Again.")
+      }
 		  // 課題：
 		  // row の中に id:linkname のテキストを入れてから
 		  // bookmark に appendChild しなさい。
@@ -32,8 +66,8 @@
 <hr />
     <input type="button" value="Add Name" onclick="addItem()">
     <br />
-    <input type="text" id="linkname" value=""><br />
-	  <input type="text" id="href" value="">
+    <input type="text" id="linkname" value="" placeholder="多摩大学"><br />
+	  <input type="text" id="href" value="" placeholder="https://www.tama.ac.jp">
 
     <ul id='bookmark'></ul>
   </body>
